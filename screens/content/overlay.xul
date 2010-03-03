@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<overlay id="test1" 
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <script type="application/javascript" src="screens.js"/>
+    <script src="chrome://global/content/contentAreaUtils.js" />
+	
+    <keyset id="mainKeyset">
+		<key modifiers="accel,shift" key="d" oncommand="screens.capture();" />
+	</keyset>
+	
+	<popup id="contentAreaContextMenu">
+		<menuitem insertafter="context-savepage" label="Save Page As Image" oncommand="screens.capture();" />
+	</popup>
+	
+	<menupopup id="menu_ToolsPopup">
+        <menuitem insertbefore="javascriptConsole" label="Screens settings ..." oncommand="screens.settingsDialog();"/>
+    </menupopup>
+</overlay>

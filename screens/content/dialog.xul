@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="screens-settings" title="Screens Settings" buttons=","
+	onload="screens.initSettingsDialog();">
+    <script src="chrome://screens/content/screens.js"/>
+    
+    <description class="header">
+        Choose how you would like to screens to save your images.
+    </description>
+    <vbox align="center">
+        <radiogroup id="image-storage-preferences">
+            <hbox align="center">
+                <radio id="user-defined"
+                    oncommand="screens.enableUserDefined();"/>
+                <label value="Save images to" control="user-defined"
+                    onclick="screens.enableUserDefined();"/>
+                <textbox id="path-to-user-defined" readonly="true"/>
+                <button label="Choose..." class="dialog"
+                    oncommand="screens.selectDir();"/>
+            </hbox>
+            <hbox align="center">
+                <radio id="default-download"
+                    oncommand="screens.enableDefault();"/>
+                <label value="Save images to the Firefox download directory"
+                    control="default-download"
+                    onclick="screens.enableDefault();"/>
+            </hbox>
+        </radiogroup>
+    </vbox>
+</dialog>
+
